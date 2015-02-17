@@ -20,7 +20,7 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
         private int _itemTemplateId;
         private IEnumerable _itemsSource;
         private IDisposable _subscription;
-        private IMvxAndroidBindingContext _bindingContext;
+        private readonly IMvxAndroidBindingContext _bindingContext;
 
         public MvxRecyclerViewAdapter()
             : this(MvxAndroidBindingContextHelpers.Current())
@@ -187,6 +187,5 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
             var mvxViewHolder = (MvxRecyclerViewViewHolder)holder;
             mvxViewHolder.DataContext = source;
         }
-
     }
 }

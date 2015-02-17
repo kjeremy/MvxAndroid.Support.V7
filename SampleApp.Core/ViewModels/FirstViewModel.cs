@@ -1,15 +1,29 @@
+using System.Collections.ObjectModel;
 using Cirrious.MvvmCross.ViewModels;
 
 namespace SampleApp.Core.ViewModels
 {
     public class FirstViewModel 
-		: MvxViewModel
+        : MvxViewModel
     {
-		private string _hello = "Hello MvvmCross";
+        private string _hello = "Hello MvvmCross";
+        private ObservableCollection<string> _awesomeItems;
+
+        public FirstViewModel()
+        {
+            this.AwesomeItems = new ObservableCollection<string>(new[] {"Candy", "Ninjas", "Robots", "Foxes", "Shiny Stuff", "Skis", "Cheese", "Money", "Barons"});
+        }
+
         public string Hello
-		{ 
-			get { return _hello; }
-			set { _hello = value; RaisePropertyChanged(() => Hello); }
-		}
+        { 
+            get { return _hello; }
+            set { _hello = value; RaisePropertyChanged(() => Hello); }
+        }
+
+        public ObservableCollection<string> AwesomeItems
+        {
+            get { return _awesomeItems; }
+            set { SetProperty(ref _awesomeItems, value); }
+        }
     }
 }
