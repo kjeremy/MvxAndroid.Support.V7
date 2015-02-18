@@ -14,12 +14,6 @@ namespace SampleApp.Core.ViewModels
             this.AwesomeItems = new ObservableCollection<string>(new[] {"Candy", "Ninjas", "Robots", "Foxes", "Shiny Stuff", "Skis", "Cheese", "Money", "Barons"});
         }
 
-        public string Hello
-        { 
-            get { return _hello; }
-            set { _hello = value; RaisePropertyChanged(() => Hello); }
-        }
-
         public ObservableCollection<string> AwesomeItems
         {
             get { return _awesomeItems; }

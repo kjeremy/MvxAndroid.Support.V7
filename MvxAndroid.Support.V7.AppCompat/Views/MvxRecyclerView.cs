@@ -11,7 +11,7 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
     public class MvxRecyclerView : RecyclerView
     {
         public MvxRecyclerView(Context context, IAttributeSet attrs)
-            : this(context, attrs, new MvxRecyclerViewAdapter())
+            : this(context, attrs, new MvxRecyclerViewAdapter(context))
         { }
 
         public MvxRecyclerView(Context context, IAttributeSet attrs, IMvxRecyclerViewAdapter adapter)

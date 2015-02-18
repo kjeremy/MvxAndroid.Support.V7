@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\IMvxRecyclerViewViewHolder.cs" />
     <Compile Include="Views\MvxRecyclerView.cs" />
     <Compile Include="Views\MvxRecyclerViewAdapter.cs" />
     <Compile Include="Views\IMvxRecyclerViewAdapter.cs" />

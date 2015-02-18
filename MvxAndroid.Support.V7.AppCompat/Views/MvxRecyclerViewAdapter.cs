@@ -10,6 +10,7 @@ using Cirrious.CrossCore.Platform;
 using Cirrious.CrossCore.WeakSubscription;
 using Cirrious.MvvmCross.Binding;
 using Cirrious.MvvmCross.Binding.Attributes;
+using Cirrious.MvvmCross.Binding.BindingContext;
 using Cirrious.MvvmCross.Binding.Droid.BindingContext;
 using Cirrious.MvvmCross.Binding.ExtensionMethods;
 
@@ -17,18 +18,19 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
 {
     public class MvxRecyclerViewAdapter : RecyclerView.Adapter, IMvxRecyclerViewAdapter
     {
+        private readonly Context _context;
+        private readonly IMvxAndroidBindingContext _bindingContext;
         private int _itemTemplateId;
         private IEnumerable _itemsSource;
         private IDisposable _subscription;
-        private readonly IMvxAndroidBindingContext _bindingContext;
 
-        public MvxRecyclerViewAdapter()
-            : this(MvxAndroidBindingContextHelpers.Current())
-        {
-        }
+        public MvxRecyclerViewAdapter(Context context)
+            : this(context, MvxAndroidBindingContextHelpers.Current())
+        {}
 
-        public MvxRecyclerViewAdapter(IMvxAndroidBindingContext bindingContext)
+        public MvxRecyclerViewAdapter(Context context, IMvxAndroidBindingContext bindingContext)
         {
+            _context = context;
             _bindingContext = bindingContext;
 
             if (_bindingContext == null)
@@ -36,16 +38,12 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
                 throw new MvxException(
                     "bindingContext is null during MvxAdapter creation - Adapter's should only be created when a specific binding context has been placed on the stack");
             }
-
-            //SimpleViewLayoutId = Resource.Layout.SimpleListItem1;
-            //SimpleDropDownViewLayoutId = Resource.Layout.SimpleSpinnerDropDownItem;
         }
 
-        //protected Context Context
-        //{
-        //    get { return _context; }
-        //}
-
+        protected Context Context
+        {
+            get { return _context; }
+        }
 
         protected IMvxAndroidBindingContext BindingContext
         {
@@ -173,11 +171,38 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
             return this._itemsSource.GetPosition(value);
         }
 
+        public override void OnViewAttachedToWindow(Java.Lang.Object holder)
+        {
+            base.OnViewAttachedToWindow(holder);
+
+            var viewHolder = (IMvxRecyclerViewViewHolder)holder;
+            viewHolder.OnAttachedToWindow();
+        }
+
+        public override void OnViewDetachedFromWindow(Java.Lang.Object holder)
+        {
+            base.OnViewDetachedFromWindow(holder);
+
+            var viewHolder = (IMvxRecyclerViewViewHolder)holder;
+            viewHolder.OnDetachedFromWindow();
+        }
+
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            View view = _bindingContext.BindingInflate(this._itemTemplateId, parent, false);
+            var bindingContext = CreateBindingContextForViewHolder();
 
-            return new MvxRecyclerViewViewHolder(view);
+            View view = InflateViewForHolder(parent, viewType, bindingContext);
+            return new MvxRecyclerViewViewHolder(view, bindingContext);
+        }
+
+        protected virtual IMvxAndroidBindingContext CreateBindingContextForViewHolder()
+        {
+            return new MvxAndroidBindingContext(_context, _bindingContext.LayoutInflater);
+        }
+
+        protected virtual View InflateViewForHolder(ViewGroup parent, int viewType, IMvxAndroidBindingContext bindingContext)
+        {
+            return bindingContext.BindingInflate(this._itemTemplateId, parent, false);
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)

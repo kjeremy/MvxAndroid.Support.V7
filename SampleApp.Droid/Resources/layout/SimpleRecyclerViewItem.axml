@@ -10,5 +10,5 @@
         android:layout_height="fill_parent"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Item"
-        local:MvxBind="." />
+        local:MvxBind="Text ." />
 </LinearLayout>
