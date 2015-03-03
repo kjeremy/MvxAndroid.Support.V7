@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Specialized;
+using System.Windows.Input;
 using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
@@ -10,7 +11,6 @@ using Cirrious.CrossCore.Platform;
 using Cirrious.CrossCore.WeakSubscription;
 using Cirrious.MvvmCross.Binding;
 using Cirrious.MvvmCross.Binding.Attributes;
-using Cirrious.MvvmCross.Binding.BindingContext;
 using Cirrious.MvvmCross.Binding.Droid.BindingContext;
 using Cirrious.MvvmCross.Binding.ExtensionMethods;
 
@@ -63,6 +63,9 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
                     this.NotifyDataSetChanged();
             }
         }
+
+        public ICommand ItemClick { get; set; }
+        public ICommand ItemLongClick { get; set; }
 
         [MvxSetToNullAfterBinding]
         public virtual IEnumerable ItemsSource
@@ -192,7 +195,11 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
             var bindingContext = CreateBindingContextForViewHolder();
 
             View view = InflateViewForHolder(parent, viewType, bindingContext);
-            return new MvxRecyclerViewViewHolder(view, bindingContext);
+            return new MvxRecyclerViewViewHolder(view, bindingContext)
+            {
+                Click = ItemClick,
+                LongClick = ItemLongClick
+            };
         }
 
         protected virtual IMvxAndroidBindingContext CreateBindingContextForViewHolder()

@@ -46,6 +46,7 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
             {
                 adapter.ItemsSource = existing.ItemsSource;
                 adapter.ItemTemplateId = existing.ItemTemplateId;
+                adapter.ItemClick = existing.ItemClick;
             }
             base.SetAdapter((Adapter)adapter);
         }
@@ -63,19 +64,16 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
             set { this.Adapter.ItemTemplateId = value; }
         }
 
-        protected virtual void ExecuteCommandOnItem(ICommand command, int position)
+        public ICommand ItemClick
         {
-            if (command == null)
-                return;
+            get { return this.Adapter.ItemClick; }
+            set { this.Adapter.ItemClick = value; }
+        }
 
-            var item = this.Adapter.GetRawItem(position);
-            if (item == null)
-                return;
-
-            if (!command.CanExecute(item))
-                return;
-
-            command.Execute(item);
+        public ICommand ItemLongClick
+        {
+            get { return this.Adapter.ItemLongClick; }
+            set { this.Adapter.ItemLongClick = value; }
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Windows.Input;
-using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Cirrious.MvvmCross.Binding.BindingContext;
@@ -76,18 +75,18 @@ namespace MvxAndroid.Support.V7.AppCompat.Views
         }
 
         private ICommand _longClick;
-        public new ICommand LongClick
+        public ICommand LongClick
         {
             get { return this._longClick; }
             set { this._longClick = value; if (this._longClick != null) this.EnsureLongClickOverloaded(); }
         }
 
-        private bool _itemClickOverloaded = false;
+        private bool _longClickOverloaded = false;
         private void EnsureLongClickOverloaded()
         {
-            if (this._itemClickOverloaded)
+            if (this._longClickOverloaded)
                 return;
-            this._itemClickOverloaded = true;
+            this._longClickOverloaded = true;
             this.ItemView.LongClick += (sender, args) => ExecuteCommandOnItem(this.LongClick);
         }
 
