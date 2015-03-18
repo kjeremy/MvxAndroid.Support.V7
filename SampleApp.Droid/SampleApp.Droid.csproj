@@ -115,7 +115,7 @@
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvxAndroid.Support.V7.AppCompat\MvxAndroid.Support.V7.csproj">
+    <ProjectReference Include="..\MvxAndroid.Support.V7\MvxAndroid.Support.V7.csproj">
       <Project>{785257a2-9cb6-4fd6-bd81-0a11b29038bf}</Project>
       <Name>MvxAndroid.Support.V7</Name>
     </ProjectReference>

@@ -26,8 +26,8 @@ namespace SampleApp
 		
 		public static void UpdateIdValues()
 		{
-			global::MvxAndroid.Support.V7.AppCompat.Resource.String.ApplicationName = global::SampleApp.Resource.String.ApplicationName;
-			global::MvxAndroid.Support.V7.AppCompat.Resource.String.Hello = global::SampleApp.Resource.String.Hello;
+			global::MvxAndroid.Support.V7.Resource.String.ApplicationName = global::SampleApp.Resource.String.ApplicationName;
+			global::MvxAndroid.Support.V7.Resource.String.Hello = global::SampleApp.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

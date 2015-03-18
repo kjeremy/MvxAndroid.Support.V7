@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("MvxAndroid.Support.V7.AppCompat.Resource", IsApplication=false)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("MvxAndroid.Support.V7.Resource", IsApplication=false)]
 
-namespace MvxAndroid.Support.V7.AppCompat
+namespace MvxAndroid.Support.V7
 {
 	
 	
