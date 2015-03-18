@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>MvxAndroid.Support.V7</id>
+        <version>1.0.0-beta1</version>
+        <title>MvvmCross Android Support v7</title>
+        <authors>Jeremy Kolb</authors>
+        <owners>Jeremy Kolb</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>MvvmCross support for widgets in the V7 Android Support library</description>
+        <releaseNotes>Initial Release</releaseNotes>
+        <copyright>2015</copyright>
+        <dependencies>
+            <dependency id="Xamarin.Android.Support.v7.RecyclerView" version="21.0.3.0" />
+			<dependency id="MvvmCross.HotTuna.CrossCore" version="3.2.2" />
+        </dependencies>
+    </metadata>
+    <files>
+      <file src="bin\Release\MvxAndroid.Support.V7.dll" target="lib\MonoAndroid23\MvxAndroid.Support.V7.dll" />
+      <file src="bin\Release\MvxAndroid.Support.V7.pdb" target="lib\MonoAndroid23\MvxAndroid.Support.V7.pdb" />
+    </files>
+</package>
