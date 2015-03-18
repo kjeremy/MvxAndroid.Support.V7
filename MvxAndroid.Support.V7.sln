@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvxAndroid.Support.V7.AppCompat", "MvxAndroid.Support.V7.AppCompat\MvxAndroid.Support.V7.AppCompat.csproj", "{785257A2-9CB6-4FD6-BD81-0A11B29038BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvxAndroid.Support.V7", "MvxAndroid.Support.V7\MvxAndroid.Support.V7.csproj", "{785257A2-9CB6-4FD6-BD81-0A11B29038BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Droid", "SampleApp.Droid\SampleApp.Droid.csproj", "{2FD7AC91-0B71-4835-B080-9ED57A042ED5}"
 EndProject
