@@ -6,7 +6,7 @@ using Android.Util;
 using Cirrious.MvvmCross.Binding.Attributes;
 using Cirrious.MvvmCross.Binding.Droid.Views;
 
-namespace MvxAndroid.Support.V7.AppCompat.Views
+namespace MvxAndroid.Support.V7.Views
 {
     public class MvxRecyclerView : RecyclerView
     {

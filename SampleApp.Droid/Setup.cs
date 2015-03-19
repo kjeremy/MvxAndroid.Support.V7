@@ -4,7 +4,7 @@ using Android.Content;
 using Cirrious.CrossCore.Platform;
 using Cirrious.MvvmCross.Droid.Platform;
 using Cirrious.MvvmCross.ViewModels;
-using MvxAndroid.Support.V7.AppCompat.Views;
+using MvxAndroid.Support.V7.Views;
 
 namespace SampleApp
 {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Windows.Input;
 using Cirrious.MvvmCross.Binding.Attributes;
 
-namespace MvxAndroid.Support.V7.AppCompat.Views
+namespace MvxAndroid.Support.V7.Views
 {
     public interface IMvxRecyclerViewAdapter
     {

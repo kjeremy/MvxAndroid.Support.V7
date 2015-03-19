@@ -14,7 +14,7 @@ using Cirrious.MvvmCross.Binding.Attributes;
 using Cirrious.MvvmCross.Binding.Droid.BindingContext;
 using Cirrious.MvvmCross.Binding.ExtensionMethods;
 
-namespace MvxAndroid.Support.V7.AppCompat.Views
+namespace MvxAndroid.Support.V7.Views
 {
     public class MvxRecyclerViewAdapter : RecyclerView.Adapter, IMvxRecyclerViewAdapter
     {

@@ -2,7 +2,7 @@ using Android.App;
 using Android.OS;
 using Android.Support.V7.Widget;
 using Cirrious.MvvmCross.Droid.Views;
-using MvxAndroid.Support.V7.AppCompat.Views;
+using MvxAndroid.Support.V7.Views;
 using SampleApp.Core.ViewModels;
 
 namespace SampleApp.Views
